@@ -137,4 +137,29 @@
         <tag>communication simulation</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Structure &amp; Interpretation of Computer Progtams</title>
+    <url>/2023/09/01/SICP1/</url>
+    <content><![CDATA[<p>This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addition, it is mainly introduce the Lisp, which has three basic significant point, primitive element, means of combination and means of abstraction. For primitive elements we give some example like + - * &lt; &#x3D; and so on. For means of combination is () COND IF. For means of abstraction is DEFINE. </p>
+<span id="more"></span>
+
+<blockquote>
+<p>“世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也”</p>
+<p>—–王安石《游褒禅山记》</p>
+</blockquote>
+<h2 id="lec1-Introduction-to-Computation"><a href="#lec1-Introduction-to-Computation" class="headerlink" title="lec1: Introduction to Computation"></a>lec1: Introduction to Computation</h2><h3 id="1-black-box"><a href="#1-black-box" class="headerlink" title="1.black-box"></a>1.black-box</h3><p>the real problem comes from where we build very, very large systems, there are the techniques for controlling the complexity of these large systems.</p>
+<p>computer science is like an abstract form of engineering, it the kind of engineering, where you ignore the constraints that are imposed by reality.</p>
+<p>The first is a kind of abstraction is called black-box abstraction. putting something in a box, using block-box abstraction to suppress detail, in order to get away form the detail to build more big box.</p>
+<p>how to make the square root algorithm: first we make a guess, then we improve the guess and we sort of keep improving that guess, we can try to find a fixed point of the function which takes Y to the average of X&#x2F;Y, (if we really had Y equal to the square root of X, then Y and X&#x2F;Y would be the same value) </p>
+<h3 id="2-the-way-of-controlling-that-kind-of-complexity"><a href="#2-the-way-of-controlling-that-kind-of-complexity" class="headerlink" title="2.the way of controlling that kind of complexity"></a>2.the way of controlling that kind of complexity</h3><p>we through define a conventional interfaces.</p>
+<p>the first one is object-oriented programming</p>
+<p>the second one is operation on aggregates, called streams.</p>
+<h3 id="3-Metalinguistic-Abstraction"><a href="#3-Metalinguistic-Abstraction" class="headerlink" title="3.Metalinguistic Abstraction"></a>3.Metalinguistic Abstraction</h3><p>what is the primitive elements and means of combination and means of abstraction.</p>
+<p>make recursive definitions is a source of incredible power.</p>
+<p>The next class is talk about how it is that you make a link between these procedures we write and the processes that happened in the machine. Using the Lisp to solve about more general conventional methods of doing things. </p>
+]]></content>
+      <tags>
+        <tag>computer-science</tag>
+      </tags>
+  </entry>
 </search>

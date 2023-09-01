@@ -4,20 +4,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Simulink-simulation basics | Here_is_ZsS</title>
+  <title>Structure &amp; Interpretation of Computer Progtams | Here_is_ZsS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This article show the basic operation of the Matlab simulink. The reference book is MATLAB通信仿真及应用实例详解 and the reference video source is 2_哔哩哔哩_bilibili">
+  <meta name="description" content="This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Simulink-simulation basics">
-<meta property="og:url" content="http://example.com/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="Structure &amp; Interpretation of Computer Progtams">
+<meta property="og:url" content="http://example.com/2023/09/01/SICP1/index.html">
 <meta property="og:site_name" content="Here_is_ZsS">
-<meta property="og:description" content="This article show the basic operation of the Matlab simulink. The reference book is MATLAB通信仿真及应用实例详解 and the reference video source is 2_哔哩哔哩_bilibili">
+<meta property="og:description" content="This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addit">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-08-08T07:19:40.451Z">
-<meta property="article:modified_time" content="2023-08-30T03:17:33.702Z">
+<meta property="article:published_time" content="2023-09-01T02:04:34.289Z">
+<meta property="article:modified_time" content="2023-09-01T02:09:41.167Z">
 <meta property="article:author" content="ZsS">
-<meta property="article:tag" content="Matlab">
-<meta property="article:tag" content="communication simulation">
+<meta property="article:tag" content="computer-science">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Here_is_ZsS" type="application/atom+xml">
@@ -72,10 +71,10 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-simulink仿真基础" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-SICP1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2023-08-08T07:19:40.451Z" itemprop="datePublished">2023-08-08</time>
+    <a href="/2023/09/01/SICP1/" class="article-date">
+  <time datetime="2023-09-01T02:04:34.289Z" itemprop="datePublished">2023-09-01</time>
 </a>
     
   </div>
@@ -86,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Simulink-simulation basics
+      Structure &amp; Interpretation of Computer Progtams
     </h1>
   
 
@@ -94,44 +93,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This article show the basic operation of the Matlab simulink. The reference book is <em>MATLAB通信仿真及应用实例详解</em> and the reference video source is <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Jx411x7Gi/?p=3&spm_id_from=pageDriver&vd_source=7a88011602c49aee2696bf36f79afa33">2_哔哩哔哩_bilibili</a></p>
+        <p>This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addition, it is mainly introduce the Lisp, which has three basic significant point, primitive element, means of combination and means of abstraction. For primitive elements we give some example like + - * &lt; &#x3D; and so on. For means of combination is () COND IF. For means of abstraction is DEFINE. </p>
 <span id="more"></span>
 
-<h2 id="搭建模块"><a href="#搭建模块" class="headerlink" title="搭建模块"></a>搭建模块</h2><p>模块选择:Ctrl+Shift+L打开模块库</p>
-<p>连线操作：</p>
-<ul>
-<li>按住ctrl键单击左键要连接的模块进行自动连线</li>
-<li>按住shitft单击左键连线创建新的节点</li>
-<li>鼠标单击右键给线添加分支</li>
-<li>将要插入的模块拖动到连线中间，自动插入</li>
-</ul>
-<p>信号组合：使用mux模块将多个标量信号组成为一个向量信号</p>
-<h2 id="运行仿真"><a href="#运行仿真" class="headerlink" title="运行仿真"></a>运行仿真</h2><p>系统仿真参数设置，Ctrl+E打开</p>
-<ul>
-<li>开始与结束时间</li>
-<li>步长（默认最大步长）&#x3D;（结束时间-开始时间）&#x2F;50</li>
-<li>maxstep设置为0.1</li>
-</ul>
-<h2 id="创建自己的模块库"><a href="#创建自己的模块库" class="headerlink" title="创建自己的模块库"></a>创建自己的模块库</h2><ul>
-<li><strong>模块合成</strong>：首先选中封装的原件，然后Creat subsystem，Ctrl+G，</li>
-<li><strong>创建新模块</strong>：首先在Port&amp;Subsystems模块中放入一个Subsystem模块，然后双击该模块，放置并排列好相关模块，保存。</li>
-<li><strong>模块的粉装</strong>：首先在要分装的模块下，选择Edit|Maske Subsystems，Ctrl+M，打开Mask editor对话框</li>
-</ul>
-<h2 id="S函数的工作原理"><a href="#S函数的工作原理" class="headerlink" title="S函数的工作原理"></a>S函数的工作原理</h2><p>首先在simulink中建立项目，选择sfun模块进行自定义自己的系统。参考maltab&#x2F;toolbox&#x2F;simulink&#x2F;blocks中的sfuntmpl.m文件中的代码，改写自己的系统函数，将其与simulink项目放在同一个工作目录下，进行仿真。</p>
+<blockquote>
+<p>“世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也”</p>
+<p>—–王安石《游褒禅山记》</p>
+</blockquote>
+<h2 id="lec1-Introduction-to-Computation"><a href="#lec1-Introduction-to-Computation" class="headerlink" title="lec1: Introduction to Computation"></a>lec1: Introduction to Computation</h2><h3 id="1-black-box"><a href="#1-black-box" class="headerlink" title="1.black-box"></a>1.black-box</h3><p>the real problem comes from where we build very, very large systems, there are the techniques for controlling the complexity of these large systems.</p>
+<p>computer science is like an abstract form of engineering, it the kind of engineering, where you ignore the constraints that are imposed by reality.</p>
+<p>The first is a kind of abstraction is called black-box abstraction. putting something in a box, using block-box abstraction to suppress detail, in order to get away form the detail to build more big box.</p>
+<p>how to make the square root algorithm: first we make a guess, then we improve the guess and we sort of keep improving that guess, we can try to find a fixed point of the function which takes Y to the average of X&#x2F;Y, (if we really had Y equal to the square root of X, then Y and X&#x2F;Y would be the same value) </p>
+<h3 id="2-the-way-of-controlling-that-kind-of-complexity"><a href="#2-the-way-of-controlling-that-kind-of-complexity" class="headerlink" title="2.the way of controlling that kind of complexity"></a>2.the way of controlling that kind of complexity</h3><p>we through define a conventional interfaces.</p>
+<p>the first one is object-oriented programming</p>
+<p>the second one is operation on aggregates, called streams.</p>
+<h3 id="3-Metalinguistic-Abstraction"><a href="#3-Metalinguistic-Abstraction" class="headerlink" title="3.Metalinguistic Abstraction"></a>3.Metalinguistic Abstraction</h3><p>what is the primitive elements and means of combination and means of abstraction.</p>
+<p>make recursive definitions is a source of incredible power.</p>
+<p>The next class is talk about how it is that you make a link between these procedures we write and the processes that happened in the machine. Using the Lisp to solve about more general conventional methods of doing things. </p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://example.com/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/" data-id="cllx64lbn0002govnfowj2bnz" class="article-share-link" data-share="baidu" data-title="Simulink-simulation basics">Share</a>
+        <a data-url="http://example.com/2023/09/01/SICP1/" data-id="cllzyj0oj0000rsvn25mhcjfw" class="article-share-link" data-share="baidu" data-title="Structure &amp; Interpretation of Computer Progtams">Share</a>
       
 
       
-        <a href="http://example.com/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://example.com/2023/09/01/SICP1/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/communication-simulation/" rel="tag">communication simulation</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/computer-science/" rel="tag">computer-science</a></li></ul>
 
     </footer>
   </div>
@@ -139,19 +131,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/09/01/%E9%80%9A%E4%BF%A1%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          通信信号与系统分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/11/11/%E6%BC%94%E8%AE%B2%E7%A8%BF/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/09/01/%E9%80%9A%E4%BF%A1%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">The speech of Steve Jobs</div>
+      <div class="article-nav-title">通信信号与系统分析</div>
     </a>
   
 </nav>
@@ -161,7 +144,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2023/08/08/simulink仿真基础/" data-title="Simulink-simulation basics" data-url="http://example.com/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2023/09/01/SICP1/" data-title="Structure &amp; Interpretation of Computer Progtams" data-url="http://example.com/2023/09/01/SICP1/"></div>
   </section>
 </section>
       
