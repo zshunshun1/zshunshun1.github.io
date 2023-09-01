@@ -131,7 +131,7 @@
     <content><![CDATA[<p>This article show the basic method to analysis the communication signal and system.</p>
 <span id="more"></span>
 
-<h2 id="通信信号"><a href="#通信信号" class="headerlink" title="通信信号"></a>通信信号</h2>]]></content>
+<h2 id="离散信号与系统"><a href="#离散信号与系统" class="headerlink" title="离散信号与系统"></a>离散信号与系统</h2><h2 id="Fourier分析"><a href="#Fourier分析" class="headerlink" title="Fourier分析"></a>Fourier分析</h2><h2 id="带通信号的低通等效"><a href="#带通信号的低通等效" class="headerlink" title="带通信号的低通等效"></a>带通信号的低通等效</h2><h2 id="随机信号分析"><a href="#随机信号分析" class="headerlink" title="随机信号分析"></a>随机信号分析</h2>]]></content>
       <tags>
         <tag>Matlab</tag>
         <tag>communication simulation</tag>
