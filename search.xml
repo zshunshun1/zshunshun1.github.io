@@ -138,7 +138,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Structure &amp; Interpretation of Computer Progtams</title>
+    <title>lec1 Introduction to Computation</title>
     <url>/2023/09/01/SICP1/</url>
     <content><![CDATA[<p>This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addition, it is mainly introduce the Lisp, which has three basic significant point, primitive element, means of combination and means of abstraction. For primitive elements we give some example like + - * &lt; &#x3D; and so on. For means of combination is () COND IF. For means of abstraction is DEFINE. </p>
 <span id="more"></span>
@@ -160,6 +160,7 @@
 ]]></content>
       <tags>
         <tag>computer-science</tag>
+        <tag>Structure &amp; Interpretation of Computer Programs</tag>
       </tags>
   </entry>
 </search>
