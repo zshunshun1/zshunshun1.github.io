@@ -75,7 +75,7 @@
   <entry>
     <title>Simulink-simulation basics</title>
     <url>/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>This article show the basic operation of the Matlab simulink. The reference book is <em>MATLAB通信仿真及应用实例详解</em> and the reference video source is <a href="https://www.bilibili.com/video/BV1Jx411x7Gi/?p=3&spm_id_from=pageDriver&vd_source=7a88011602c49aee2696bf36f79afa33">2_哔哩哔哩_bilibili</a></p>
+    <content><![CDATA[<p>This article show the basic operation of the Matlab simulink. The reference book is <em>MATLAB通信仿真及应用实例详解</em> and the reference video source is <a href="https://www.bilibili.com/video/BV1Jx411x7Gi/?p=3&spm_id_from=pageDriver&vd_source=7a88011602c49aee2696bf36f79afa33">MATLAB通信仿真及应用实例详解</a></p>
 <span id="more"></span>
 
 <h2 id="搭建模块"><a href="#搭建模块" class="headerlink" title="搭建模块"></a>搭建模块</h2><p>模块选择:Ctrl+Shift+L打开模块库</p>
@@ -210,7 +210,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Structure &amp; Interpretation of Computer Programs</title>
+    <title>Structure &amp; Interpretation of Computer Programs1</title>
     <url>/2023/09/01/SICP1/</url>
     <content><![CDATA[<p>Source:<a href="https://cs61a.org/">https://cs61a.org/</a></p>
 <span id="more"></span>
