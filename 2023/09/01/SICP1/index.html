@@ -4,21 +4,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>lec1 Introduction to Computation | Here_is_ZsS</title>
+  <title>Structure &amp; Interpretation of Computer Programs | Here_is_ZsS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addit">
+  <meta name="description" content="Source:https:&#x2F;&#x2F;cs61a.org&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lec1 Introduction to Computation">
+<meta property="og:title" content="Structure &amp; Interpretation of Computer Programs">
 <meta property="og:url" content="http://example.com/2023/09/01/SICP1/index.html">
 <meta property="og:site_name" content="Here_is_ZsS">
-<meta property="og:description" content="This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addit">
+<meta property="og:description" content="Source:https:&#x2F;&#x2F;cs61a.org&#x2F;">
 <meta property="og:locale">
+<meta property="og:image" content="c:\Users\%E5%BA%84%E9%A1%BA%E9%A1%BA\AppData\Roaming\Typora\typora-user-images\1693557976746.png">
+<meta property="og:image" content="c:\Users\%E5%BA%84%E9%A1%BA%E9%A1%BA\AppData\Roaming\Typora\typora-user-images\1693558050240.png">
 <meta property="article:published_time" content="2023-09-01T02:04:34.289Z">
-<meta property="article:modified_time" content="2023-09-01T02:11:50.147Z">
+<meta property="article:modified_time" content="2023-09-03T12:26:17.674Z">
 <meta property="article:author" content="ZsS">
 <meta property="article:tag" content="computer-science">
 <meta property="article:tag" content="Structure &amp; Interpretation of Computer Programs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\%E5%BA%84%E9%A1%BA%E9%A1%BA\AppData\Roaming\Typora\typora-user-images\1693557976746.png">
   
     <link rel="alternative" href="/atom.xml" title="Here_is_ZsS" type="application/atom+xml">
   
@@ -86,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      lec1 Introduction to Computation
+      Structure &amp; Interpretation of Computer Programs
     </h1>
   
 
@@ -94,14 +97,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addition, it is mainly introduce the Lisp, which has three basic significant point, primitive element, means of combination and means of abstraction. For primitive elements we give some example like + - * &lt; &#x3D; and so on. For means of combination is () COND IF. For means of abstraction is DEFINE. </p>
+        <p>Source:<a target="_blank" rel="noopener" href="https://cs61a.org/">https://cs61a.org/</a></p>
 <span id="more"></span>
 
 <blockquote>
 <p>“世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也”</p>
 <p>—–王安石《游褒禅山记》</p>
 </blockquote>
-<h2 id="lec1-Introduction-to-Computation"><a href="#lec1-Introduction-to-Computation" class="headerlink" title="lec1: Introduction to Computation"></a>lec1: Introduction to Computation</h2><h3 id="1-black-box"><a href="#1-black-box" class="headerlink" title="1.black-box"></a>1.black-box</h3><p>the real problem comes from where we build very, very large systems, there are the techniques for controlling the complexity of these large systems.</p>
+<h2 id="lec1a-Overview-and-Introduction-to-LISP"><a href="#lec1a-Overview-and-Introduction-to-LISP" class="headerlink" title="lec1a  Overview and Introduction to LISP"></a>lec1a  Overview and Introduction to LISP</h2><p>the real problem comes from where we build very, very large systems, there are the techniques for controlling the complexity of these large systems.</p>
 <p>computer science is like an abstract form of engineering, it the kind of engineering, where you ignore the constraints that are imposed by reality.</p>
 <p>The first is a kind of abstraction is called black-box abstraction. putting something in a box, using block-box abstraction to suppress detail, in order to get away form the detail to build more big box.</p>
 <p>how to make the square root algorithm: first we make a guess, then we improve the guess and we sort of keep improving that guess, we can try to find a fixed point of the function which takes Y to the average of X&#x2F;Y, (if we really had Y equal to the square root of X, then Y and X&#x2F;Y would be the same value) </p>
@@ -110,13 +113,31 @@
 <p>the second one is operation on aggregates, called streams.</p>
 <h3 id="3-Metalinguistic-Abstraction"><a href="#3-Metalinguistic-Abstraction" class="headerlink" title="3.Metalinguistic Abstraction"></a>3.Metalinguistic Abstraction</h3><p>what is the primitive elements and means of combination and means of abstraction.</p>
 <p>make recursive definitions is a source of incredible power.</p>
+<p>This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addition, it is mainly introduce the Lisp, which has three basic significant point, primitive element, means of combination and means of abstraction. For primitive elements we give some example like + - * &lt; &#x3D; and so on. For means of combination is () COND IF. For means of abstraction is DEFINE. </p>
 <p>The next class is talk about how it is that you make a link between these procedures we write and the processes that happened in the machine. Using the Lisp to solve about more general conventional methods of doing things. </p>
+<h2 id="lec1b-Procedures-and-Processes-substitution-model"><a href="#lec1b-Procedures-and-Processes-substitution-model" class="headerlink" title="lec1b Procedures and Processes &amp; substitution model"></a>lec1b Procedures and Processes &amp; substitution model</h2><p><img src="C:\Users\庄顺顺\AppData\Roaming\Typora\typora-user-images\1693557976746.png" alt="1693557976746"></p>
+<p><img src="C:\Users\庄顺顺\AppData\Roaming\Typora\typora-user-images\1693558050240.png" alt="1693558050240"></p>
+<p>the way to construct a recursive process is by washing thinking. </p>
+<h2 id="lec2a-higher-order-proceduces"><a href="#lec2a-higher-order-proceduces" class="headerlink" title="lec2a higher-order proceduces"></a>lec2a higher-order proceduces</h2><p>$$<br>\sum_{a}^{b}i<br>$$</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（DEFINE (SUM-INT A B)</span><br><span class="line">    IF (&gt; a b)</span><br><span class="line">    <span class="number">0</span></span><br><span class="line">    (+ a (SUM-INT (<span class="number">1</span>+ a) b))）</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p>so we abstract the sum to get a general pattern:<br>$$<br>\sum_{a}^{b}x<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(define (&lt;name&gt; a b)</span><br><span class="line">	(if (&gt; a b)</span><br><span class="line">	0</span><br><span class="line">	(+ (&lt;term&gt; a)</span><br><span class="line">		(&lt;name&gt; (&lt;next&gt; a) b) ) )</span><br></pre></td></tr></table></figure>
+
+<p>Then we talk about procedural arguments:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">##TERM and NEXT are goging to be procedures <span class="keyword">for</span> computing something given a number. TERM will be a procedure which when given an index, produce the value of the term <span class="keyword">for</span> the index. NEXT will be given an index, which will produce the next index.</span><br><span class="line"></span><br><span class="line">(DEFINE (SUM TERM A NEXT B)</span><br><span class="line">	(IF (&gt; A B)</span><br><span class="line">		<span class="number">0</span></span><br><span class="line">		(+ (TERM A)</span><br><span class="line">			(SUM TERM</span><br><span class="line">				 (NEXT A)</span><br><span class="line">				 NEXT</span><br><span class="line">				 B))))</span><br></pre></td></tr></table></figure>
+
+<p>That is procedures that take procedural arguments and produce procedural values.</p>
+<p>The derivative is a procedure that takes a procedure (f) that computes a function as its argument, and it produces a procedure that computes a function which needs one argument x. </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(DEFINE DERIV</span><br><span class="line">		(lambda (f)</span><br><span class="line">				(lambda (x) </span><br><span class="line">						(/ (- (f (+ x dx))</span><br><span class="line">							  (f x))</span><br><span class="line">							dx))</span><br><span class="line">		))</span><br></pre></td></tr></table></figure>
+
+<h2 id="lec2b-Compound-Data"><a href="#lec2b-Compound-Data" class="headerlink" title="lec2b Compound Data"></a>lec2b Compound Data</h2><p>data abstraction is a sort of the programming methodology of setting up data objects by postulating constructors and selectors to isolate use from representation. </p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://example.com/2023/09/01/SICP1/" data-id="cllzyj0oj0000rsvn25mhcjfw" class="article-share-link" data-share="baidu" data-title="lec1 Introduction to Computation">Share</a>
+        <a data-url="http://example.com/2023/09/01/SICP1/" data-id="clmhyexnc0008ggvn9pxp4q88" class="article-share-link" data-share="baidu" data-title="Structure &amp; Interpretation of Computer Programs">Share</a>
       
 
       
@@ -132,6 +153,15 @@
     
 <nav id="article-nav">
   
+    <a href="/2023/09/14/CS61A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Structure &amp; Interpretation of Computer Programs
+        
+      </div>
+    </a>
+  
   
     <a href="/2023/09/01/%E9%80%9A%E4%BF%A1%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
@@ -145,7 +175,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2023/09/01/SICP1/" data-title="lec1 Introduction to Computation" data-url="http://example.com/2023/09/01/SICP1/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2023/09/01/SICP1/" data-title="Structure &amp; Interpretation of Computer Programs" data-url="http://example.com/2023/09/01/SICP1/"></div>
   </section>
 </section>
       
@@ -157,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engliash/" rel="tag">Engliash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Japanese/" rel="tag">Japanese</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Novel/" rel="tag">Novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Structure-Interpretation-of-Computer-Programs/" rel="tag">Structure &amp; Interpretation of Computer Programs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication-simulation/" rel="tag">communication simulation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer-science/" rel="tag">computer-science</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engliash/" rel="tag">Engliash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Japanese/" rel="tag">Japanese</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Novel/" rel="tag">Novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Structure-Interpretation-of-Computer-Programs/" rel="tag">Structure &amp; Interpretation of Computer Programs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication-simulation/" rel="tag">communication simulation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer-science/" rel="tag">computer-science</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -166,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Engliash/" style="font-size: 10px;">Engliash</a> <a href="/tags/Japanese/" style="font-size: 10px;">Japanese</a> <a href="/tags/Matlab/" style="font-size: 20px;">Matlab</a> <a href="/tags/Novel/" style="font-size: 10px;">Novel</a> <a href="/tags/Structure-Interpretation-of-Computer-Programs/" style="font-size: 10px;">Structure & Interpretation of Computer Programs</a> <a href="/tags/communication-simulation/" style="font-size: 20px;">communication simulation</a> <a href="/tags/computer-science/" style="font-size: 10px;">computer-science</a>
+      <a href="/tags/Engliash/" style="font-size: 10px;">Engliash</a> <a href="/tags/Japanese/" style="font-size: 10px;">Japanese</a> <a href="/tags/Matlab/" style="font-size: 20px;">Matlab</a> <a href="/tags/Novel/" style="font-size: 10px;">Novel</a> <a href="/tags/Structure-Interpretation-of-Computer-Programs/" style="font-size: 20px;">Structure & Interpretation of Computer Programs</a> <a href="/tags/communication-simulation/" style="font-size: 20px;">communication simulation</a> <a href="/tags/computer-science/" style="font-size: 20px;">computer-science</a>
     </div>
   </div>
 
@@ -175,7 +205,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -187,7 +217,11 @@
       <ul>
         
           <li>
-            <a href="/2023/09/01/SICP1/">lec1 Introduction to Computation</a>
+            <a href="/2023/09/14/CS61A/">Structure &amp; Interpretation of Computer Programs</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/01/SICP1/">Structure &amp; Interpretation of Computer Programs</a>
           </li>
         
           <li>
@@ -196,10 +230,6 @@
         
           <li>
             <a href="/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/">Simulink-simulation basics</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/11/%E6%BC%94%E8%AE%B2%E7%A8%BF/">The speech of Steve Jobs</a>
           </li>
         
           <li>

@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Structure &amp; Interpretation of Computer Programs | Here_is_ZsS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Source:https:&#x2F;&#x2F;cs61a.org&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Structure &amp; Interpretation of Computer Programs">
+<meta property="og:url" content="http://example.com/2023/09/14/CS61A/index.html">
+<meta property="og:site_name" content="Here_is_ZsS">
+<meta property="og:description" content="Source:https:&#x2F;&#x2F;cs61a.org&#x2F;">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/pictures/image.png">
+<meta property="og:image" content="http://example.com/pictures/image-1.png">
+<meta property="article:published_time" content="2023-09-13T16:25:10.974Z">
+<meta property="article:modified_time" content="2023-09-13T16:24:49.259Z">
+<meta property="article:author" content="ZsS">
+<meta property="article:tag" content="computer-science">
+<meta property="article:tag" content="Structure &amp; Interpretation of Computer Programs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pictures/image.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Here_is_ZsS" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Here_is_ZsS</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="example.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-CS61A" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/14/CS61A/" class="article-date">
+  <time datetime="2023-09-13T16:25:10.974Z" itemprop="datePublished">2023-09-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Structure &amp; Interpretation of Computer Programs
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Source:<a target="_blank" rel="noopener" href="https://cs61a.org/">https://cs61a.org/</a></p>
+<span id="more"></span>
+
+<blockquote>
+<p>“世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也”</p>
+<p>—–王安石《游褒禅山记》</p>
+</blockquote>
+<h2 id="1-How-to-debugged"><a href="#1-How-to-debugged" class="headerlink" title="1.How to debugged"></a>1.How to debugged</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">python -i ex.py</span><br><span class="line">python -m doctest -v ex.py</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;Generalization&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_adder</span>(<span class="params">n</span>):</span><br><span class="line">     <span class="string">&quot;&quot;&quot;Return a function that takes one arguments K and return K + N.</span></span><br><span class="line"><span class="string">     &gt;&gt;&gt; add_three = maker_adder(3)</span></span><br><span class="line"><span class="string">     &gt;&gt;&gt; add_three(4)</span></span><br><span class="line"><span class="string">     7</span></span><br><span class="line"><span class="string">     &quot;&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">     def adder(k):</span></span><br><span class="line"><span class="string">          return k+n</span></span><br><span class="line"><span class="string">     return adder</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## 利用// 和 % 取每一位</span></span><br><span class="line"><span class="string">def unique_digits(n):</span></span><br><span class="line"><span class="string">    &quot;</span><span class="string">&quot;&quot;</span>Return the number of unique digits <span class="keyword">in</span> positive integer n.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; unique_digits(<span class="number">8675309</span>) <span class="comment"># All are unique</span></span><br><span class="line">    <span class="number">7</span></span><br><span class="line">    &gt;&gt;&gt; unique_digits(<span class="number">13173131</span>) <span class="comment"># 1, 3, and 7</span></span><br><span class="line">    <span class="number">3</span></span><br><span class="line">    &gt;&gt;&gt; unique_digits(<span class="number">101</span>) <span class="comment"># 0 and 1</span></span><br><span class="line">    <span class="number">2</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    digits = []</span></span><br><span class="line"><span class="string">    res = 0</span></span><br><span class="line"><span class="string">    while n &gt; 0:</span></span><br><span class="line"><span class="string">        digit = n % 10</span></span><br><span class="line"><span class="string">        if digit not in digits:</span></span><br><span class="line"><span class="string">            digits.append(digit)</span></span><br><span class="line"><span class="string">            res += 1</span></span><br><span class="line"><span class="string">        n = n // 10</span></span><br><span class="line"><span class="string">    return res</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(unique_digits(13173131))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def has_digit(n, k):</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span>Returns whether k <span class="keyword">is</span> a digit <span class="keyword">in</span> n.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; has_digit(<span class="number">10</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="literal">True</span></span><br><span class="line">    &gt;&gt;&gt; has_digit(<span class="number">12</span>, <span class="number">7</span>)</span><br><span class="line">    <span class="literal">False</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    assert k &gt;= 0 and k &lt; 10</span></span><br><span class="line"><span class="string">    digits = []</span></span><br><span class="line"><span class="string">    while n &gt; 0:</span></span><br><span class="line"><span class="string">        digit = n % 10</span></span><br><span class="line"><span class="string">        if digit not in digits:</span></span><br><span class="line"><span class="string">            digits.append(digit)</span></span><br><span class="line"><span class="string">        n = n / 10</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    if k in digits:</span></span><br><span class="line"><span class="string">        return True</span></span><br><span class="line"><span class="string">    else:</span></span><br><span class="line"><span class="string">        return False</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Hog-Project"><a href="#Hog-Project" class="headerlink" title="Hog-Project"></a>Hog-Project</h1><p>Rule:<br>Two palyers alternate turns trying to be the first to end a turn with at least GOAL total point, where GOAL defaults to 100.<br>On each turn, the current player chooses some number of dice to roll, up to 10.<br>That player’s score for the turn is the sum of the dice outcomes.</p>
+<p>Some risks if a player who rolls too many dice:</p>
+<ol>
+<li>Sow Sad(母猪伤心): if any of the dice outcomes is a 1, the current player’s score for the turn is 1.</li>
+<li>Boar Brawl(野猪争吵): A player who chooses to roll zero dice scores three times the absolute difference between the ten digit(十位) of the opponent’s score and the ones digit(个位) of the current player’s score, or this turns’ score is 1, whichever is higher. The ones digit refers to the rightmost digit and the tens digit refers to the second-rightmost digit. If a player’s score is a single digit, the tens digit of that player’s score is 0.</li>
+<li>Sus Fuss(大惊小怪): We call a number sus if it has exactly 3 or 4 factors, including 1 and the number itself. If after the rolling, the current player’s number is a sus number, they gain enough points such that their score instantly increases to the next prime number.</li>
+</ol>
+<h1 id="5-Environments"><a href="#5-Environments" class="headerlink" title="5.Environments"></a>5.Environments</h1><h2 id="1-Environment-for-Higher-Older-Functions"><a href="#1-Environment-for-Higher-Older-Functions" class="headerlink" title="(1)Environment for Higher-Older Functions"></a>(1)Environment for Higher-Older Functions</h2><p>A function that take a function as an argument value or  returns a function as a return value</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def apply_twice(f,x):</span><br><span class="line">    return f(f(x))</span><br><span class="line"></span><br><span class="line">def saquare(x):</span><br><span class="line">    return x*x</span><br></pre></td></tr></table></figure>
+<h2 id="2-Environment-for-Nested-Definations"><a href="#2-Environment-for-Nested-Definations" class="headerlink" title="(2)Environment for Nested Definations"></a>(2)Environment for Nested Definations</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def make_adder(n):</span><br><span class="line">    def ader(k):</span><br><span class="line">        return k+n</span><br><span class="line">    return adder</span><br><span class="line"></span><br><span class="line">add_three = make_adder(3)</span><br><span class="line">result = add_three(5)</span><br></pre></td></tr></table></figure>
+<p><img src="/pictures/image.png" alt="function environment"></p>
+<p>How to draw an environment diagram:<br>When a function is defined:</p>
+<ul>
+<li>Creat a function value: func &lt;name&gt;(&lt;formal parameters&gt;) [parent&#x3D;<parent>]</li>
+<li>Its parents is the current frame</li>
+<li>Bind <name> to the function value in the current frame</li>
+</ul>
+<p>When a function is called:</p>
+<ul>
+<li>Add a local frame, titled with the <name> of the function being called.</li>
+<li>Copy the parent of the function to the local frame:[parent&#x3D;<label>]</li>
+<li>Bind the <formal parameters> to the arguments in the local frame.</li>
+<li>Execute the body of the function in the environment that start with the local frame.</li>
+</ul>
+<h2 id="3-local-name"><a href="#3-local-name" class="headerlink" title="(3)local name"></a>(3)local name</h2><p><img src="/pictures/image-1.png" alt="Alt text"></p>
+<h2 id="4-function-composition"><a href="#4-function-composition" class="headerlink" title="(4)function composition"></a>(4)function composition</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">make_adder</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">k</span>):</span><br><span class="line">        <span class="keyword">return</span> n + k</span><br><span class="line">    <span class="keyword">return</span> adder</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x*x</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">triple</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span> * x </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compose1</span>(<span class="params">f,g</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">h</span>(<span class="params">x</span>):</span><br><span class="line">        <span class="keyword">return</span> f(g(x))</span><br><span class="line">    <span class="keyword">return</span> h</span><br><span class="line"></span><br><span class="line">squiple = compose1(square,triple)</span><br><span class="line">squiple(<span class="number">5</span>)</span><br><span class="line"><span class="number">15</span></span><br><span class="line"></span><br><span class="line">tripare = compose1(triple,square)</span><br><span class="line">tripare(<span class="number">5</span>)</span><br><span class="line"><span class="number">75</span></span><br><span class="line"></span><br><span class="line">squadder = compose1(square,make_adder(<span class="number">2</span>))</span><br><span class="line">squadder(<span class="number">3</span>)</span><br><span class="line"><span class="number">25</span></span><br><span class="line"></span><br><span class="line">composel(square,make_adder(<span class="number">2</span>))(<span class="number">3</span>)</span><br><span class="line"><span class="number">25</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="5-Lambda-Expression"><a href="#5-Lambda-Expression" class="headerlink" title="(5)Lambda Expression"></a>(5)Lambda Expression</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">square = lambda x: x * x</span><br><span class="line">square(4)</span><br><span class="line">16</span><br><span class="line"></span><br><span class="line">(lambda x: x * x)(3)</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Function-Currying"><a href="#6-Function-Currying" class="headerlink" title="(6)Function Currying"></a>(6)Function Currying</h2><p>Currying: Transforming a multi-argument function into a single-argument, higher-order function.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def make_adder(n):</span><br><span class="line">    return lambda k: k + n</span><br><span class="line"></span><br><span class="line">make_adder(2)(3)</span><br><span class="line">5</span><br><span class="line"></span><br><span class="line">add(2,3)</span><br><span class="line">5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def curry2(f):</span><br><span class="line">    def g(x):</span><br><span class="line">        def h(y):</span><br><span class="line">            return f(x,y)</span><br><span class="line">        return h</span><br><span class="line">    return g</span><br><span class="line"></span><br><span class="line">from operator import add</span><br><span class="line">m = curry2(add)</span><br><span class="line">add_three = m(3)</span><br><span class="line">add_three(2)</span><br><span class="line">5</span><br><span class="line"></span><br><span class="line">curry2 = lambda f: lambda x: lambda y: f(x,y)</span><br><span class="line">m = curry2(add)</span><br><span class="line">m(2)(3)</span><br><span class="line">5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Homework02"><a href="#Homework02" class="headerlink" title="Homework02"></a>Homework02</h2><h3 id="Q1product"><a href="#Q1product" class="headerlink" title="Q1product()"></a>Q1product()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">def product(n, term):</span><br><span class="line">    &quot;&quot;&quot;Return the product of the first n terms in a sequence.</span><br><span class="line"></span><br><span class="line">    n: a positive integer</span><br><span class="line">    term:  a function that takes one argument to produce the term</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; product(3, identity)  # 1 * 2 * 3</span><br><span class="line">    6</span><br><span class="line">    &gt;&gt;&gt; product(5, identity)  # 1 * 2 * 3 * 4 * 5</span><br><span class="line">    120</span><br><span class="line">    &gt;&gt;&gt; product(3, square)    # 1^2 * 2^2 * 3^2</span><br><span class="line">    36</span><br><span class="line">    &gt;&gt;&gt; product(5, square)    # 1^2 * 2^2 * 3^2 * 4^2 * 5^2</span><br><span class="line">    14400</span><br><span class="line">    &gt;&gt;&gt; product(3, increment) # (1+1) * (2+1) * (3+1)</span><br><span class="line">    24</span><br><span class="line">    &gt;&gt;&gt; product(3, triple)    # 1*3 * 2*3 * 3*3</span><br><span class="line">    162</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    total = 1</span><br><span class="line">    while n:</span><br><span class="line">        temp = term(n)</span><br><span class="line">        total *= temp</span><br><span class="line">        n = n - 1</span><br><span class="line">    return total</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Q2accumulate"><a href="#Q2accumulate" class="headerlink" title="Q2accumulate()"></a>Q2accumulate()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">def accumulate(merger, start, n, term):</span><br><span class="line">    &quot;&quot;&quot;Return the result of merging the first n terms in a sequence and start.</span><br><span class="line">    The terms to be merged are term(1), term(2), ..., term(n). merger is a</span><br><span class="line">    two-argument commutative function.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; accumulate(add, 0, 5, identity)  # 0 + 1 + 2 + 3 + 4 + 5</span><br><span class="line">    15</span><br><span class="line">    &gt;&gt;&gt; accumulate(add, 11, 5, identity) # 11 + 1 + 2 + 3 + 4 + 5</span><br><span class="line">    26</span><br><span class="line">    &gt;&gt;&gt; accumulate(add, 11, 0, identity) # 11</span><br><span class="line">    11</span><br><span class="line">    &gt;&gt;&gt; accumulate(add, 11, 3, square)   # 11 + 1^2 + 2^2 + 3^2</span><br><span class="line">    25</span><br><span class="line">    &gt;&gt;&gt; accumulate(mul, 2, 3, square)    # 2 * 1^2 * 2^2 * 3^2</span><br><span class="line">    72</span><br><span class="line">    &gt;&gt;&gt; # 2 + (1^2 + 1) + (2^2 + 1) + (3^2 + 1)</span><br><span class="line">    &gt;&gt;&gt; accumulate(lambda x, y: x + y + 1, 2, 3, square)</span><br><span class="line">    19</span><br><span class="line">    &gt;&gt;&gt; # ((2 * 1^2 * 2) * 2^2 * 2) * 3^2 * 2</span><br><span class="line">    &gt;&gt;&gt; accumulate(lambda x, y: 2 * x * y, 2, 3, square)</span><br><span class="line">    576</span><br><span class="line">    &gt;&gt;&gt; accumulate(lambda x, y: (x + y) % 17, 19, 20, square)</span><br><span class="line">    16</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    total = start</span><br><span class="line">    for i in range(1,n+1):</span><br><span class="line">        temp = term(i)</span><br><span class="line">        total = merger(total,temp)</span><br><span class="line">    return total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def summation_using_accumulate(n, term):</span><br><span class="line">    &quot;&quot;&quot;Returns the sum: term(1) + ... + term(n), using accumulate.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; summation_using_accumulate(5, square)</span><br><span class="line">    55</span><br><span class="line">    &gt;&gt;&gt; summation_using_accumulate(5, triple)</span><br><span class="line">    45</span><br><span class="line">    &gt;&gt;&gt; # You aren&#x27;t expected to understand the code of this test.</span><br><span class="line">    &gt;&gt;&gt; # Check that the bodies of the functions are just return statements.</span><br><span class="line">    &gt;&gt;&gt; # If this errors, make sure you have removed the &quot;***YOUR CODE HERE***&quot;.</span><br><span class="line">    &gt;&gt;&gt; import inspect, ast</span><br><span class="line">    &gt;&gt;&gt; [type(x).__name__ for x in ast.parse(inspect.getsource(summation_using_accumulate)).body[0].body]</span><br><span class="line">    [&#x27;Expr&#x27;, &#x27;Return&#x27;]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return accumulate(add,0,n,term=term)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def product_using_accumulate(n, term):</span><br><span class="line">    &quot;&quot;&quot;Returns the product: term(1) * ... * term(n), using accumulate.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; product_using_accumulate(4, square)</span><br><span class="line">    576</span><br><span class="line">    &gt;&gt;&gt; product_using_accumulate(6, triple)</span><br><span class="line">    524880</span><br><span class="line">    &gt;&gt;&gt; # You aren&#x27;t expected to understand the code of this test.</span><br><span class="line">    &gt;&gt;&gt; # Check that the bodies of the functions are just return statements.</span><br><span class="line">    &gt;&gt;&gt; # If this errors, make sure you have removed the &quot;***YOUR CODE HERE***&quot;.</span><br><span class="line">    &gt;&gt;&gt; import inspect, ast</span><br><span class="line">    &gt;&gt;&gt; [type(x).__name__ for x in ast.parse(inspect.getsource(product_using_accumulate)).body[0].body]</span><br><span class="line">    [&#x27;Expr&#x27;, &#x27;Return&#x27;]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return accumulate(mul,1,n,term)</span><br></pre></td></tr></table></figure>
+<h3 id="Q3funception"><a href="#Q3funception" class="headerlink" title="Q3funception()"></a>Q3funception()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">def funception(func1, begin):</span><br><span class="line">    &quot;&quot;&quot; Takes in a function (func1) and a begin value.</span><br><span class="line">    Returns a function (func2) that will find the product of</span><br><span class="line">    func1 applied to the range of numbers from</span><br><span class="line">    begin (inclusive) to end (exclusive)</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; def increment(num):</span><br><span class="line">    ...     return num + 1</span><br><span class="line">    &gt;&gt;&gt; def double(num):</span><br><span class="line">    ...     return num * 2</span><br><span class="line">    &gt;&gt;&gt; g1 = funception(increment, 0)</span><br><span class="line">    &gt;&gt;&gt; g1(3)    # increment(0) * increment(1) * increment(2) = 1 * 2 * 3 = 6</span><br><span class="line">    6</span><br><span class="line">    &gt;&gt;&gt; g1(0)    # Returns 1 because begin &gt;= end</span><br><span class="line">    1</span><br><span class="line">    &gt;&gt;&gt; g1(-1)   # Returns 1 because begin &gt;= end</span><br><span class="line">    1</span><br><span class="line">    &gt;&gt;&gt; g2 = funception(double, 1)</span><br><span class="line">    &gt;&gt;&gt; g2(3)    # double(1) * double(2) = 2 * 4 = 8</span><br><span class="line">    8</span><br><span class="line">    &gt;&gt;&gt; g2(4)    # double(1) * double(2) * double(3) = 2 * 4 * 6 = 48</span><br><span class="line">    48</span><br><span class="line">    &gt;&gt;&gt; g3 = funception(increment, -3)</span><br><span class="line">    &gt;&gt;&gt; g3(-1)   # increment(-3) * increment(-2) = -2 * -1 = 2</span><br><span class="line">    2</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    begintemp = begin</span><br><span class="line">    def func2(end):</span><br><span class="line">        start = begintemp</span><br><span class="line">        total = 1</span><br><span class="line">        if start &gt;= end:</span><br><span class="line">            return 1</span><br><span class="line">        while True:</span><br><span class="line">            temp = func1(start)</span><br><span class="line">            total *= temp</span><br><span class="line">            start += 1</span><br><span class="line">            if start == (end):</span><br><span class="line">                break</span><br><span class="line">        return total</span><br><span class="line">    return func2</span><br></pre></td></tr></table></figure>
+<p>attention:</p>
+<ul>
+<li>Through define a var(begintemp) in parent frame store the var(begin) in order to use this vlaue, through this way, we can avoid the localVar Error</li>
+<li>When using the while, we should using True or False as a flag, and paired with a accuarcy if to break the cycle. Because it may get into a trouble, if using a var as a falg which we can’t confirm  whether it can be  assigned  to 0. And also if flag is an negetive number, the cycle will not stop, only when the flag is 0(False).</li>
+<li>In this case, through def a function in a function and finally return a function name.</li>
+</ul>
+<h3 id="Q4Lambda-Math"><a href="#Q4Lambda-Math" class="headerlink" title="Q4Lambda Math"></a>Q4Lambda Math</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">def mul_by_num(num):</span><br><span class="line">    &quot;&quot;&quot;Returns a function that takes one argument and returns num</span><br><span class="line">    times that argument.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; x = mul_by_num(5)</span><br><span class="line">    &gt;&gt;&gt; y = mul_by_num(2)</span><br><span class="line">    &gt;&gt;&gt; x(3)</span><br><span class="line">    15</span><br><span class="line">    &gt;&gt;&gt; y(-4)</span><br><span class="line">    -8</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return lambda x: x * num</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def add_results(f1, f2):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Return a function that takes in a single variable x, and returns</span><br><span class="line">    f1(x) + f2(x). You can assume the result of f1(x) and f2(x) can be</span><br><span class="line">    added together, and they both take in one argument.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; identity = lambda x: x</span><br><span class="line">    &gt;&gt;&gt; square = lambda x: x**2</span><br><span class="line">    &gt;&gt;&gt; a1 = add_results(identity, square) # x + x^2</span><br><span class="line">    &gt;&gt;&gt; a1(4)</span><br><span class="line">    20</span><br><span class="line">    &gt;&gt;&gt; a2 = add_results(a1, identity)     # (x + x^2) + x</span><br><span class="line">    &gt;&gt;&gt; a2(4)</span><br><span class="line">    24</span><br><span class="line">    &gt;&gt;&gt; a2(5)</span><br><span class="line">    35</span><br><span class="line">    &gt;&gt;&gt; a3 = add_results(a1, a2)           # (x + x^2) + (x + x^2 + x)</span><br><span class="line">    &gt;&gt;&gt; a3(4)</span><br><span class="line">    44</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return lambda x: f1(x) + f2(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def mod_maker():</span><br><span class="line">    &quot;&quot;&quot;Return a two-argument function that performs the modulo operation and</span><br><span class="line">    returns True if the numbers are divisble, and the remainder otherwise.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; mod = mod_maker()</span><br><span class="line">    &gt;&gt;&gt; mod(7, 2) # 7 % 2</span><br><span class="line">    1</span><br><span class="line">    &gt;&gt;&gt; mod(4, 8) # 4 % 8</span><br><span class="line">    4</span><br><span class="line">    &gt;&gt;&gt; mod(8,4) # 8 % 4</span><br><span class="line">    True</span><br><span class="line">    &gt;&gt;&gt; from construct_check import check</span><br><span class="line">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;mod_maker&#x27;, [&#x27;If&#x27;, &#x27;IfExp&#x27;]) # no if / if-else statements</span><br><span class="line">    True</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return lambda x,y : x % y or True</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>When coding the mod_maker, I get some trouble about how to return two values utilize the Lambda.<ul>
+<li>逻辑操作符有个有趣的特性：在不需要求职的时候操作。这么说可能比较“高深”，举个例子，表达式x and y ，需要x和y两个变量同时为真（True）的时候,结果才为真。因此如果当x变量得知是假(false)的时候，表达式就会立刻返回false，而不用去管y的变量值。这种行为称为短路逻辑（short-circuit logic）或者惰性求值（lazy evaluation），这种行为同样也应用与or操作符。如果第一个为False,or的话会立刻返回后一个判别的数字,第一个为真时会立刻返回第一个数</li>
+</ul>
+</li>
+</ul>
+<h1 id="6-Sound-Optional"><a href="#6-Sound-Optional" class="headerlink" title="6.Sound(Optional)"></a>6.Sound(Optional)</h1><h2 id="1-Sound-Example"><a href="#1-Sound-Example" class="headerlink" title="(1)Sound Example"></a>(1)Sound Example</h2><p>This lecture  mainly tell what’s the point of the high-order functions.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">from wave import open</span><br><span class="line">from struct import Struct</span><br><span class="line">#struct is module about encoding integers in the format that wave file require</span><br><span class="line">from math import floor</span><br><span class="line"></span><br><span class="line">frame_rate = 11025</span><br><span class="line"></span><br><span class="line">def encode(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Encode float x between -1 and 1 as two bytes.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    i = int(16384 * x)</span><br><span class="line">    return Struct(&#x27;h&#x27;).pack(i)</span><br><span class="line"></span><br><span class="line">def play(sampler,name=&#x27;song.wav&#x27;,seconds=2):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Write the output of a sampler function as a wav file.</span><br><span class="line">    sampler is a function to generate a song</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    out = open(name,&#x27;wb&#x27;)</span><br><span class="line">    out.setnchannels(1)</span><br><span class="line">    out.setsampwidth(2)</span><br><span class="line">    out.setframerate(frame_rate)</span><br><span class="line">    t = 0</span><br><span class="line">    while t &lt; seconds * frame_rate:</span><br><span class="line">        sample = sampler(t)</span><br><span class="line">        out.writeframes(encode(sample))</span><br><span class="line">        t = t + 1</span><br><span class="line">    out.close()</span><br><span class="line"></span><br><span class="line">def tri(frequency,amplitude=0.3):</span><br><span class="line">    &quot;&quot;&quot;A continous triangle wave&quot;&quot;&quot;</span><br><span class="line">    period = frame_rate // frequency</span><br><span class="line">    def sampler(t):</span><br><span class="line">        saw_wave = t / period - floor(t / period + 0.5)</span><br><span class="line">        tri_wave = 2 * abs(2 * saw_wave) - 1</span><br><span class="line">        return amplitude * tri_wave</span><br><span class="line">    return sampler</span><br><span class="line"></span><br><span class="line">#ex1</span><br><span class="line"># c_freq = 261.63</span><br><span class="line"></span><br><span class="line"># c = tri(c_freq)</span><br><span class="line"># t = 0</span><br><span class="line"># while t&lt;100:</span><br><span class="line">#     print(c(t))</span><br><span class="line">#     t += 1</span><br><span class="line"></span><br><span class="line">#ex2</span><br><span class="line">c_freq, e_freq, g_freq = 261.463,329.63,392.00</span><br><span class="line">def both(f,g):</span><br><span class="line">    return lambda t: f(t)+g(t)</span><br><span class="line"></span><br><span class="line">play(both(tri(c_freq),tri(e_freq)))</span><br><span class="line"></span><br><span class="line">#ex3</span><br><span class="line">def note(f,start,end):</span><br><span class="line">    def sampler(t):</span><br><span class="line">        seconds = t / frame_rate</span><br><span class="line">        if seconds &lt; start:</span><br><span class="line">            return 0</span><br><span class="line">        elif seconds &gt; end:</span><br><span class="line">            return 0</span><br><span class="line">        else:</span><br><span class="line">            return f(t)</span><br><span class="line">    return sampler</span><br><span class="line"></span><br><span class="line">c, e = tri(c_freq),tri(e_freq)</span><br><span class="line">play(note(c,0,1/3))</span><br><span class="line">play(both(note(c,0,1/4),note(e,1/2,1)))</span><br><span class="line"></span><br><span class="line">#ex4</span><br><span class="line"># In order to make the song sound more natural</span><br><span class="line">def note(f,start,end,fade=0.01):</span><br><span class="line">    def sampler(t):</span><br><span class="line">        seconds = t / frame_rate</span><br><span class="line">        if seconds &lt; start:</span><br><span class="line">            return 0</span><br><span class="line">        elif seconds &gt; end:</span><br><span class="line">            return 0</span><br><span class="line">        elif seconds &lt; start + fade:</span><br><span class="line">            return (seconds - start) / fade * f(t)</span><br><span class="line">        elif seconds &gt; end - fade:</span><br><span class="line">            return (end - seconds) / fade * f(t)</span><br><span class="line">        else:</span><br><span class="line">            return f(t)</span><br><span class="line">    return sampler</span><br><span class="line"></span><br><span class="line">play(both(note(c,0,1/4),note(e,1/2,1)))</span><br><span class="line"></span><br><span class="line">#ex5</span><br><span class="line"></span><br><span class="line">def mario_at(ortave):</span><br><span class="line">    c,e = tri(ortave * c_freq), tri(ortave * e_freq)</span><br><span class="line">    g, low_g = tri(ortave * g_freq), tri(ortave * g_freq / 2)</span><br><span class="line">    return mario(c,e,g,low_g)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def mario(c,e,g,low_g):</span><br><span class="line">    z = 0</span><br><span class="line">    song = note(e,z,z + 1/8)</span><br><span class="line">    z += 1/8</span><br><span class="line">    song = both(song,note(e,z,z + 1/8))</span><br><span class="line">    z += 1/4</span><br><span class="line">    song = both(song,note(e,z,z + 1/8))</span><br><span class="line">    z += 1/4</span><br><span class="line">    song = both(song,note(c,z,z + 1/8))</span><br><span class="line">    z += 1/8</span><br><span class="line">    song = both(song,note(e,z,z + 1/8))</span><br><span class="line">    z += 1/4</span><br><span class="line">    song = both(song,note(g,z,z + 1/4))</span><br><span class="line">    z += 1/2</span><br><span class="line">    song = both(song,note(low_g,z,z + 1/4))</span><br><span class="line">    z += 1/2</span><br><span class="line">    return song</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">play(mario_at(1))</span><br><span class="line">play(mario_at(1/2))</span><br><span class="line">play(both(mario_at(1),mario_at(1.2)))</span><br><span class="line"></span><br><span class="line">     </span><br></pre></td></tr></table></figure>
+<h2 id="Lab02"><a href="#Lab02" class="headerlink" title="Lab02"></a>Lab02</h2><h3 id="Q1What-would-python-display"><a href="#Q1What-would-python-display" class="headerlink" title="Q1What would python display?"></a>Q1What would python display?</h3><p>逻辑操作符有个有趣的特性：在不需要求职的时候操作。这么说可能比较“高深”，举个例子，表达式x and y ，需要x和y两个变量同时为真（True）的时候,结果才为真。因此如果当x变量得知是假(false)的时候，表达式就会立刻返回false，而不用去管y的变量值。这种行为称为短路逻辑（short-circuit logic）或者惰性求值（lazy evaluation），这种行为同样也应用与or操作符。如果第一个为False,or的话会立刻返回后一个判别的数字,第一个为真时会立刻返回第一个数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(3) or &quot;&quot;</span><br><span class="line">&gt;&gt;&gt; 3</span><br><span class="line">&gt;&gt;&gt; &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q2-High-Order-Functions"><a href="#Q2-High-Order-Functions" class="headerlink" title="Q2 High Order Functions"></a>Q2 High Order Functions</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">def cycle(f1, f2, f3):</span><br><span class="line">    &quot;&quot;&quot;Returns a function that is itself a higher-order function.</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; def add1(x):</span><br><span class="line">    ...     return x + 1</span><br><span class="line">    &gt;&gt;&gt; def times2(x):</span><br><span class="line">    ...     return x * 2</span><br><span class="line">    &gt;&gt;&gt; def add3(x):</span><br><span class="line">    ...     return x + 3</span><br><span class="line">    &gt;&gt;&gt; my_cycle = cycle(add1, times2, add3)</span><br><span class="line">    &gt;&gt;&gt; identity = my_cycle(0)</span><br><span class="line">    &gt;&gt;&gt; identity(5)</span><br><span class="line">    5</span><br><span class="line">    &gt;&gt;&gt; add_one_then_double = my_cycle(2)</span><br><span class="line">    &gt;&gt;&gt; add_one_then_double(1)</span><br><span class="line">    4</span><br><span class="line">    &gt;&gt;&gt; do_all_functions = my_cycle(3)</span><br><span class="line">    &gt;&gt;&gt; do_all_functions(2)</span><br><span class="line">    9</span><br><span class="line">    &gt;&gt;&gt; do_more_than_a_cycle = my_cycle(4)</span><br><span class="line">    &gt;&gt;&gt; do_more_than_a_cycle(2)</span><br><span class="line">    10</span><br><span class="line">    &gt;&gt;&gt; do_two_cycles = my_cycle(6)</span><br><span class="line">    &gt;&gt;&gt; do_two_cycles(1)</span><br><span class="line">    19</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def g(n):</span><br><span class="line">        def h(x):</span><br><span class="line">            p = n // 3</span><br><span class="line">            q = n % 3</span><br><span class="line">            for i in range(p):</span><br><span class="line">                x = f3(f2(f1(x)))</span><br><span class="line">            if q == 0:</span><br><span class="line">                return x</span><br><span class="line">            elif q == 1:</span><br><span class="line">                return f1(x)</span><br><span class="line">            else:</span><br><span class="line">                return f2(f1(x))</span><br><span class="line">        return h</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-Function-Abstraction"><a href="#7-Function-Abstraction" class="headerlink" title="7.Function Abstraction"></a>7.Function Abstraction</h1><h2 id="1"><a href="#1" class="headerlink" title="(1)"></a>(1)</h2>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://example.com/2023/09/14/CS61A/" data-id="clmhyexmw0001ggvndh7ygqw0" class="article-share-link" data-share="baidu" data-title="Structure &amp; Interpretation of Computer Programs">Share</a>
+      
+
+      
+        <a href="http://example.com/2023/09/14/CS61A/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Structure-Interpretation-of-Computer-Programs/" rel="tag">Structure &amp; Interpretation of Computer Programs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/computer-science/" rel="tag">computer-science</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/09/01/SICP1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Structure &amp; Interpretation of Computer Programs</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2023/09/14/CS61A/" data-title="Structure &amp; Interpretation of Computer Programs" data-url="http://example.com/2023/09/14/CS61A/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engliash/" rel="tag">Engliash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Japanese/" rel="tag">Japanese</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Novel/" rel="tag">Novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Structure-Interpretation-of-Computer-Programs/" rel="tag">Structure &amp; Interpretation of Computer Programs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/communication-simulation/" rel="tag">communication simulation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer-science/" rel="tag">computer-science</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Engliash/" style="font-size: 10px;">Engliash</a> <a href="/tags/Japanese/" style="font-size: 10px;">Japanese</a> <a href="/tags/Matlab/" style="font-size: 20px;">Matlab</a> <a href="/tags/Novel/" style="font-size: 10px;">Novel</a> <a href="/tags/Structure-Interpretation-of-Computer-Programs/" style="font-size: 20px;">Structure & Interpretation of Computer Programs</a> <a href="/tags/communication-simulation/" style="font-size: 20px;">communication simulation</a> <a href="/tags/computer-science/" style="font-size: 20px;">computer-science</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/09/14/CS61A/">Structure &amp; Interpretation of Computer Programs</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/01/SICP1/">Structure &amp; Interpretation of Computer Programs</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/01/%E9%80%9A%E4%BF%A1%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/">通信信号与系统分析</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/">Simulink-simulation basics</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/11/test/">吾輩は猫である</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 ZsS<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+</div>
+</body>
+</html>
