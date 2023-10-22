@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CS61-Recursion</title>
+    <url>/2023/10/22/4.Recursion/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="1-Recursion"><a href="#1-Recursion" class="headerlink" title="1.Recursion"></a>1.Recursion</h1><h2 id="（1）Recursive-Functions"><a href="#（1）Recursive-Functions" class="headerlink" title="（1）Recursive Functions"></a>（1）Recursive Functions</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">##Sum digits without a while statement:</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">split</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">return</span> n//<span class="number">10</span>,n%<span class="number">10</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_digits</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_sum_last,last = split(n)</span><br><span class="line">        <span class="keyword">return</span> sum_digits(all_sum_last) + last</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">## Solving the Iteration</span></span><br><span class="line"><span class="comment">##using while:</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fact_iter</span>(<span class="params">n</span>):</span><br><span class="line">    total,k = <span class="number">1</span>,<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total, k = total*k, k+<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> total</span><br><span class="line"><span class="comment">##using recursion:</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fact</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> n * fact(n-<span class="number">1</span>)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p>The Luhn Algorithm:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">split</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x // <span class="number">10</span>, x % <span class="number">10</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">luhn_sum</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_but_last,last = split(n)</span><br><span class="line">        <span class="keyword">return</span> luhn_sum_double(all_but_last) + last</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">luhn_sum_double</span>(<span class="params">n</span>):</span><br><span class="line">    all_but_last,last = split(n)</span><br><span class="line">    luhn_digit = sum_digits(<span class="number">2</span>*last)</span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> luhn_digit</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> luhn_sum(all_but_last) + luhn_digit</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_digits_iter</span>(<span class="params">n</span>):</span><br><span class="line">    digit_sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        n,last = split(n)</span><br><span class="line">        digit_sum = digit_sum + last</span><br><span class="line">    <span class="keyword">return</span> digit_sum</span><br></pre></td></tr></table></figure>
+
+<p>Converting Iteration to Recursion</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_digits_iter</span>(<span class="params">n</span>):</span><br><span class="line">    digit_sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        n,last = split(n)</span><br><span class="line">        digit_sum = digit_sum + last</span><br><span class="line">    <span class="keyword">return</span> digit_sum</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_digits_rec</span>(<span class="params">n,digit_sum</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> digit_sum</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        n,last = split(n)</span><br><span class="line">        <span class="keyword">return</span> sum_digits_rec(n,digit_sum +last)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h2 id="Discussion-3"><a href="#Discussion-3" class="headerlink" title="Discussion 3"></a>Discussion 3</h2><h3 id="Q-1-Recursive-Multiplication"><a href="#Q-1-Recursive-Multiplication" class="headerlink" title="Q(1) Recursive Multiplication"></a>Q(1) Recursive Multiplication</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multiply</span>(<span class="params">m, n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Takes two positive integers and returns their product using recursion.</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; multiply(5, 3)</span></span><br><span class="line"><span class="string">    15</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> m + multiply(m,n-<span class="number">1</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Q-2-Recursion-Environment-Diagram"><a href="#Q-2-Recursion-Environment-Diagram" class="headerlink" title="Q(2) Recursion Environment Diagram"></a>Q(2) Recursion Environment Diagram</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">rec</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">if</span> y &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> x * rec(x,y - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">rec(<span class="number">3</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q-3-Find-the-Bug"><a href="#Q-3-Find-the-Bug" class="headerlink" title="Q(3) Find the Bug"></a>Q(3) Find the Bug</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">skip_mul</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the product of n * (n - 2) * (n - 4) * ...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; skip_mul(5) # 5 * 3 * 1</span></span><br><span class="line"><span class="string">    15</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; skip_mul(8) # 8 * 6 * 4 * 2</span></span><br><span class="line"><span class="string">    384</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> n * skip_mul(n - <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q-4-Is-Prime"><a href="#Q-4-Is-Prime" class="headerlink" title="Q(4) Is Prime"></a>Q(4) Is Prime</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns True if n is a prime number and False otherwise.</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; is_prime(2)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; is_prime(16)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; is_prime(521)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">check_all</span>(<span class="params">i</span>):</span><br><span class="line">        <span class="string">&quot;Check whether no number from i up to n evenly divides n.&quot;</span></span><br><span class="line">        <span class="keyword">if</span> i == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">elif</span> n % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> check_all(i + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> check_all(<span class="number">2</span>)  <span class="comment">##在上面定义完def check_all()直接跳转并执行该行代码</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_prime2</span>(<span class="params">n,i=<span class="number">2</span></span>):</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">elif</span> n == <span class="number">2</span> <span class="keyword">or</span> i &gt;= <span class="built_in">int</span>(n**<span class="number">0.5</span>)+<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">elif</span> n % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> is_prime2(n,i+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q-5-Recursive-Hailstone"><a href="#Q-5-Recursive-Hailstone" class="headerlink" title="Q(5) Recursive Hailstone"></a>Q(5) Recursive Hailstone</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">hailstone</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Print out the hailstone sequence starting at n, and return the number of elements in the sequence.</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; a = hailstone(10)</span></span><br><span class="line"><span class="string">    10</span></span><br><span class="line"><span class="string">    5</span></span><br><span class="line"><span class="string">    16</span></span><br><span class="line"><span class="string">    8</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; a</span></span><br><span class="line"><span class="string">    7</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; b = hailstone(1)</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; b</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(n)</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> n % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + hailstone(n // <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + hailstone(<span class="number">3</span> * n + <span class="number">1</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Q（6）Merge-Numbers"><a href="#Q（6）Merge-Numbers" class="headerlink" title="Q（6）Merge Numbers"></a>Q（6）Merge Numbers</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">merge</span>(<span class="params">n1, n2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Merges two numbers by digit in decreasing order.</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; merge(31, 42)</span></span><br><span class="line"><span class="string">    4321</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; merge(21, 0)</span></span><br><span class="line"><span class="string">    21</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; merge (21, 31)</span></span><br><span class="line"><span class="string">    3211</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n1 == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> n2</span><br><span class="line">    <span class="keyword">elif</span> n2 == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> n1</span><br><span class="line">    <span class="keyword">elif</span> n1 % <span class="number">10</span> &lt; n2 % <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> merge(n1 // <span class="number">10</span>,n2) * <span class="number">10</span> + n1 % <span class="number">10</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> merge(n1,n2 // <span class="number">10</span>) * <span class="number">10</span> + n2 % <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-Tree-Recording"><a href="#2-Tree-Recording" class="headerlink" title="2.Tree Recording"></a>2.Tree Recording</h1><h2 id="order-of-Cascade"><a href="#order-of-Cascade" class="headerlink" title="order of Cascade"></a>order of Cascade</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">cascade</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="built_in">print</span>(n)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(n)</span><br><span class="line">        cascade(n//<span class="number">10</span>)</span><br><span class="line">        <span class="built_in">print</span>(n)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cascade2</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="built_in">print</span>(n)</span><br><span class="line">    <span class="keyword">if</span> n &gt;= <span class="number">10</span>:</span><br><span class="line">        cascade(n // <span class="number">10</span>)</span><br><span class="line">        <span class="built_in">print</span>(n)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h2 id="Inverse-Cascade"><a href="#Inverse-Cascade" class="headerlink" title="Inverse Cascade"></a>Inverse Cascade</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## function that prints an inverse cascade:</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">inverse_cascade</span>(<span class="params">n</span>):</span><br><span class="line">    grow(n)</span><br><span class="line">    <span class="built_in">print</span>(n)</span><br><span class="line">    shrink(n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f_then_g</span>(<span class="params">f,g,n</span>):</span><br><span class="line">    <span class="keyword">if</span> n:</span><br><span class="line">        f(n)</span><br><span class="line">        g(n)</span><br><span class="line"></span><br><span class="line">grow = <span class="keyword">lambda</span> n: f_then_g(grow,<span class="built_in">print</span>,n//<span class="number">10</span>)</span><br><span class="line">shrink = <span class="keyword">lambda</span> n: f_then_g(<span class="built_in">print</span>,grow,n//<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Tree-Recursion"><a href="#Tree-Recursion" class="headerlink" title="Tree Recursion"></a>Tree Recursion</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## fiboacci</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> ucb <span class="keyword">import</span> trace</span><br><span class="line"><span class="meta">@trace</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fib</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">elif</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> fib(n-<span class="number">2</span>) + fib(n-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Counting-Partitions"><a href="#Counting-Partitions" class="headerlink" title="Counting Partitions"></a>Counting Partitions</h2><p>The number of partitions of a positive integer n, using parts up to size m, is the number of ways in which n can be expressed as the sum of positive integer parts up to m in increasing order.</p>
+<ul>
+<li>Recursive decomposition: finding simpler instances of the problem.</li>
+<li>Explore two possibilities:<ul>
+<li>Use at least one 4</li>
+<li>Don’t use any 4</li>
+</ul>
+</li>
+<li>Solve two simpler problems:</li>
+<li>count_partitions(2,4)加到4，求和数是2.</li>
+<li>count_partitions(6,3)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Counting Partitions</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_partitions</span>(<span class="params">n,m</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> n &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">elif</span> m == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        with_m = count_partitions(n-m,m)</span><br><span class="line">        without_m = count_partitions(n,m-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> with_m + without_m</span><br><span class="line">    </span><br><span class="line">count_partitions(<span class="number">6</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>computer-science</tag>
+        <tag>CS61AFall-2023</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Structure &amp; Interpretation of Computer Programs1</title>
+    <url>/2023/09/01/SICP1/</url>
+    <content><![CDATA[<p>Source:<a href="https://cs61a.org/">https://cs61a.org/</a></p>
+<span id="more"></span>
+
+<blockquote>
+<p>“世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也”</p>
+<p>—–王安石《游褒禅山记》</p>
+</blockquote>
+<h2 id="lec1a-Overview-and-Introduction-to-LISP"><a href="#lec1a-Overview-and-Introduction-to-LISP" class="headerlink" title="lec1a  Overview and Introduction to LISP"></a>lec1a  Overview and Introduction to LISP</h2><p>the real problem comes from where we build very, very large systems, there are the techniques for controlling the complexity of these large systems.</p>
+<p>computer science is like an abstract form of engineering, it the kind of engineering, where you ignore the constraints that are imposed by reality.</p>
+<p>The first is a kind of abstraction is called black-box abstraction. putting something in a box, using block-box abstraction to suppress detail, in order to get away form the detail to build more big box.</p>
+<p>how to make the square root algorithm: first we make a guess, then we improve the guess and we sort of keep improving that guess, we can try to find a fixed point of the function which takes Y to the average of X&#x2F;Y, (if we really had Y equal to the square root of X, then Y and X&#x2F;Y would be the same value) </p>
+<h3 id="2-the-way-of-controlling-that-kind-of-complexity"><a href="#2-the-way-of-controlling-that-kind-of-complexity" class="headerlink" title="2.the way of controlling that kind of complexity"></a>2.the way of controlling that kind of complexity</h3><p>we through define a conventional interfaces.</p>
+<p>the first one is object-oriented programming</p>
+<p>the second one is operation on aggregates, called streams.</p>
+<h3 id="3-Metalinguistic-Abstraction"><a href="#3-Metalinguistic-Abstraction" class="headerlink" title="3.Metalinguistic Abstraction"></a>3.Metalinguistic Abstraction</h3><p>what is the primitive elements and means of combination and means of abstraction.</p>
+<p>make recursive definitions is a source of incredible power.</p>
+<p>This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addition, it is mainly introduce the Lisp, which has three basic significant point, primitive element, means of combination and means of abstraction. For primitive elements we give some example like + - * &lt; &#x3D; and so on. For means of combination is () COND IF. For means of abstraction is DEFINE. </p>
+<p>The next class is talk about how it is that you make a link between these procedures we write and the processes that happened in the machine. Using the Lisp to solve about more general conventional methods of doing things. </p>
+<h2 id="lec1b-Procedures-and-Processes-substitution-model"><a href="#lec1b-Procedures-and-Processes-substitution-model" class="headerlink" title="lec1b Procedures and Processes &amp; substitution model"></a>lec1b Procedures and Processes &amp; substitution model</h2><p><img src="C:\Users\庄顺顺\AppData\Roaming\Typora\typora-user-images\1693557976746.png" alt="1693557976746"></p>
+<p><img src="C:\Users\庄顺顺\AppData\Roaming\Typora\typora-user-images\1693558050240.png" alt="1693558050240"></p>
+<p>the way to construct a recursive process is by washing thinking. </p>
+<h2 id="lec2a-higher-order-proceduces"><a href="#lec2a-higher-order-proceduces" class="headerlink" title="lec2a higher-order proceduces"></a>lec2a higher-order proceduces</h2><p>$$<br>\sum_{a}^{b}i<br>$$</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">（DEFINE (SUM-INT A B)</span><br><span class="line">    IF (&gt; a b)</span><br><span class="line">    <span class="number">0</span></span><br><span class="line">    (+ a (SUM-INT (<span class="number">1</span>+ a) b))）</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p>so we abstract the sum to get a general pattern:<br>$$<br>\sum_{a}^{b}x<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(define (&lt;name&gt; a b)</span><br><span class="line">	(if (&gt; a b)</span><br><span class="line">	0</span><br><span class="line">	(+ (&lt;term&gt; a)</span><br><span class="line">		(&lt;name&gt; (&lt;next&gt; a) b) ) )</span><br></pre></td></tr></table></figure>
+
+<p>Then we talk about procedural arguments:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">##TERM and NEXT are goging to be procedures <span class="keyword">for</span> computing something given a number. TERM will be a procedure which when given an index, produce the value of the term <span class="keyword">for</span> the index. NEXT will be given an index, which will produce the next index.</span><br><span class="line"></span><br><span class="line">(DEFINE (SUM TERM A NEXT B)</span><br><span class="line">	(IF (&gt; A B)</span><br><span class="line">		<span class="number">0</span></span><br><span class="line">		(+ (TERM A)</span><br><span class="line">			(SUM TERM</span><br><span class="line">				 (NEXT A)</span><br><span class="line">				 NEXT</span><br><span class="line">				 B))))</span><br></pre></td></tr></table></figure>
+
+<p>That is procedures that take procedural arguments and produce procedural values.</p>
+<p>The derivative is a procedure that takes a procedure (f) that computes a function as its argument, and it produces a procedure that computes a function which needs one argument x. </p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(DEFINE DERIV</span><br><span class="line">		(lambda (f)</span><br><span class="line">				(lambda (x) </span><br><span class="line">						(/ (- (f (+ x dx))</span><br><span class="line">							  (f x))</span><br><span class="line">							dx))</span><br><span class="line">		))</span><br></pre></td></tr></table></figure>
+
+<h2 id="lec2b-Compound-Data"><a href="#lec2b-Compound-Data" class="headerlink" title="lec2b Compound Data"></a>lec2b Compound Data</h2><p>data abstraction is a sort of the programming methodology of setting up data objects by postulating constructors and selectors to isolate use from representation. </p>
+]]></content>
+      <tags>
+        <tag>computer-science</tag>
+        <tag>Structure &amp; Interpretation of Computer Programs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Structure &amp; Interpretation of Computer Programs</title>
     <url>/2023/09/14/CS61A/</url>
     <content><![CDATA[<p>Source:<a href="https://cs61a.org/">https://cs61a.org/</a></p>
@@ -70,52 +171,6 @@
       <tags>
         <tag>computer-science</tag>
         <tag>Structure &amp; Interpretation of Computer Programs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Simulink-simulation basics</title>
-    <url>/2023/08/08/simulink%E4%BB%BF%E7%9C%9F%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>This article show the basic operation of the Matlab simulink. The reference book is <em>MATLAB通信仿真及应用实例详解</em> and the reference video source is <a href="https://www.bilibili.com/video/BV1Jx411x7Gi/?p=3&spm_id_from=pageDriver&vd_source=7a88011602c49aee2696bf36f79afa33">MATLAB通信仿真及应用实例详解</a></p>
-<span id="more"></span>
-
-<h2 id="搭建模块"><a href="#搭建模块" class="headerlink" title="搭建模块"></a>搭建模块</h2><p>模块选择:Ctrl+Shift+L打开模块库</p>
-<p>连线操作：</p>
-<ul>
-<li>按住ctrl键单击左键要连接的模块进行自动连线</li>
-<li>按住shitft单击左键连线创建新的节点</li>
-<li>鼠标单击右键给线添加分支</li>
-<li>将要插入的模块拖动到连线中间，自动插入</li>
-</ul>
-<p>信号组合：使用mux模块将多个标量信号组成为一个向量信号</p>
-<h2 id="运行仿真"><a href="#运行仿真" class="headerlink" title="运行仿真"></a>运行仿真</h2><p>系统仿真参数设置，Ctrl+E打开</p>
-<ul>
-<li>开始与结束时间</li>
-<li>步长（默认最大步长）&#x3D;（结束时间-开始时间）&#x2F;50</li>
-<li>maxstep设置为0.1</li>
-</ul>
-<h2 id="创建自己的模块库"><a href="#创建自己的模块库" class="headerlink" title="创建自己的模块库"></a>创建自己的模块库</h2><ul>
-<li><strong>模块合成</strong>：首先选中封装的原件，然后Creat subsystem，Ctrl+G，</li>
-<li><strong>创建新模块</strong>：首先在Port&amp;Subsystems模块中放入一个Subsystem模块，然后双击该模块，放置并排列好相关模块，保存。</li>
-<li><strong>模块的粉装</strong>：首先在要分装的模块下，选择Edit|Maske Subsystems，Ctrl+M，打开Mask editor对话框</li>
-</ul>
-<h2 id="S函数的工作原理"><a href="#S函数的工作原理" class="headerlink" title="S函数的工作原理"></a>S函数的工作原理</h2><p>首先在simulink中建立项目，选择sfun模块进行自定义自己的系统。参考maltab&#x2F;toolbox&#x2F;simulink&#x2F;blocks中的sfuntmpl.m文件中的代码，改写自己的系统函数，将其与simulink项目放在同一个工作目录下，进行仿真。</p>
-]]></content>
-      <tags>
-        <tag>Matlab</tag>
-        <tag>communication simulation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>吾輩は猫である</title>
-    <url>/2018/11/11/test/</url>
-    <content><![CDATA[<p>123121</p>
-<span id="more"></span>
-
-<h1 id="this-is-a-test"><a href="#this-is-a-test" class="headerlink" title="this is a test"></a>this is a test</h1><p>how are you ?<br>matlab仿真<br>python编程<br>单片机<br>英语阅读<br>英语听力<br>意大利语A1-A2<br>字幕翻译+剪辑<br>LaTex编程<br>电吉他<br>专业课复习<br>SEO<br>实变函数<br>泛函<br>vim</p>
-]]></content>
-      <tags>
-        <tag>Novel</tag>
-        <tag>Japanese</tag>
       </tags>
   </entry>
   <entry>
@@ -195,62 +250,6 @@
 ]]></content>
       <tags>
         <tag>Engliash</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>通信信号与系统分析</title>
-    <url>/2023/09/01/%E9%80%9A%E4%BF%A1%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<p>This article show the basic method to analysis the communication signal and system.</p>
-<span id="more"></span>
-
-<h2 id="离散信号与系统"><a href="#离散信号与系统" class="headerlink" title="离散信号与系统"></a>离散信号与系统</h2><h2 id="Fourier分析"><a href="#Fourier分析" class="headerlink" title="Fourier分析"></a>Fourier分析</h2><h2 id="带通信号的低通等效"><a href="#带通信号的低通等效" class="headerlink" title="带通信号的低通等效"></a>带通信号的低通等效</h2><h2 id="随机信号分析"><a href="#随机信号分析" class="headerlink" title="随机信号分析"></a>随机信号分析</h2>]]></content>
-      <tags>
-        <tag>Matlab</tag>
-        <tag>communication simulation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Structure &amp; Interpretation of Computer Programs1</title>
-    <url>/2023/09/01/SICP1/</url>
-    <content><![CDATA[<p>Source:<a href="https://cs61a.org/">https://cs61a.org/</a></p>
-<span id="more"></span>
-
-<blockquote>
-<p>“世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也”</p>
-<p>—–王安石《游褒禅山记》</p>
-</blockquote>
-<h2 id="lec1a-Overview-and-Introduction-to-LISP"><a href="#lec1a-Overview-and-Introduction-to-LISP" class="headerlink" title="lec1a  Overview and Introduction to LISP"></a>lec1a  Overview and Introduction to LISP</h2><p>the real problem comes from where we build very, very large systems, there are the techniques for controlling the complexity of these large systems.</p>
-<p>computer science is like an abstract form of engineering, it the kind of engineering, where you ignore the constraints that are imposed by reality.</p>
-<p>The first is a kind of abstraction is called black-box abstraction. putting something in a box, using block-box abstraction to suppress detail, in order to get away form the detail to build more big box.</p>
-<p>how to make the square root algorithm: first we make a guess, then we improve the guess and we sort of keep improving that guess, we can try to find a fixed point of the function which takes Y to the average of X&#x2F;Y, (if we really had Y equal to the square root of X, then Y and X&#x2F;Y would be the same value) </p>
-<h3 id="2-the-way-of-controlling-that-kind-of-complexity"><a href="#2-the-way-of-controlling-that-kind-of-complexity" class="headerlink" title="2.the way of controlling that kind of complexity"></a>2.the way of controlling that kind of complexity</h3><p>we through define a conventional interfaces.</p>
-<p>the first one is object-oriented programming</p>
-<p>the second one is operation on aggregates, called streams.</p>
-<h3 id="3-Metalinguistic-Abstraction"><a href="#3-Metalinguistic-Abstraction" class="headerlink" title="3.Metalinguistic Abstraction"></a>3.Metalinguistic Abstraction</h3><p>what is the primitive elements and means of combination and means of abstraction.</p>
-<p>make recursive definitions is a source of incredible power.</p>
-<p>This class talk about the general catalogue of the content of this course which from three main parts block-box, the way of controlling that kind of complexity and Metalinguistic abstraction. In addition, it is mainly introduce the Lisp, which has three basic significant point, primitive element, means of combination and means of abstraction. For primitive elements we give some example like + - * &lt; &#x3D; and so on. For means of combination is () COND IF. For means of abstraction is DEFINE. </p>
-<p>The next class is talk about how it is that you make a link between these procedures we write and the processes that happened in the machine. Using the Lisp to solve about more general conventional methods of doing things. </p>
-<h2 id="lec1b-Procedures-and-Processes-substitution-model"><a href="#lec1b-Procedures-and-Processes-substitution-model" class="headerlink" title="lec1b Procedures and Processes &amp; substitution model"></a>lec1b Procedures and Processes &amp; substitution model</h2><p><img src="C:\Users\庄顺顺\AppData\Roaming\Typora\typora-user-images\1693557976746.png" alt="1693557976746"></p>
-<p><img src="C:\Users\庄顺顺\AppData\Roaming\Typora\typora-user-images\1693558050240.png" alt="1693558050240"></p>
-<p>the way to construct a recursive process is by washing thinking. </p>
-<h2 id="lec2a-higher-order-proceduces"><a href="#lec2a-higher-order-proceduces" class="headerlink" title="lec2a higher-order proceduces"></a>lec2a higher-order proceduces</h2><p>$$<br>\sum_{a}^{b}i<br>$$</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">（DEFINE (SUM-INT A B)</span><br><span class="line">    IF (&gt; a b)</span><br><span class="line">    <span class="number">0</span></span><br><span class="line">    (+ a (SUM-INT (<span class="number">1</span>+ a) b))）</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-
-<p>so we abstract the sum to get a general pattern:<br>$$<br>\sum_{a}^{b}x<br>$$</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(define (&lt;name&gt; a b)</span><br><span class="line">	(if (&gt; a b)</span><br><span class="line">	0</span><br><span class="line">	(+ (&lt;term&gt; a)</span><br><span class="line">		(&lt;name&gt; (&lt;next&gt; a) b) ) )</span><br></pre></td></tr></table></figure>
-
-<p>Then we talk about procedural arguments:</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">##TERM and NEXT are goging to be procedures <span class="keyword">for</span> computing something given a number. TERM will be a procedure which when given an index, produce the value of the term <span class="keyword">for</span> the index. NEXT will be given an index, which will produce the next index.</span><br><span class="line"></span><br><span class="line">(DEFINE (SUM TERM A NEXT B)</span><br><span class="line">	(IF (&gt; A B)</span><br><span class="line">		<span class="number">0</span></span><br><span class="line">		(+ (TERM A)</span><br><span class="line">			(SUM TERM</span><br><span class="line">				 (NEXT A)</span><br><span class="line">				 NEXT</span><br><span class="line">				 B))))</span><br></pre></td></tr></table></figure>
-
-<p>That is procedures that take procedural arguments and produce procedural values.</p>
-<p>The derivative is a procedure that takes a procedure (f) that computes a function as its argument, and it produces a procedure that computes a function which needs one argument x. </p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(DEFINE DERIV</span><br><span class="line">		(lambda (f)</span><br><span class="line">				(lambda (x) </span><br><span class="line">						(/ (- (f (+ x dx))</span><br><span class="line">							  (f x))</span><br><span class="line">							dx))</span><br><span class="line">		))</span><br></pre></td></tr></table></figure>
-
-<h2 id="lec2b-Compound-Data"><a href="#lec2b-Compound-Data" class="headerlink" title="lec2b Compound Data"></a>lec2b Compound Data</h2><p>data abstraction is a sort of the programming methodology of setting up data objects by postulating constructors and selectors to isolate use from representation. </p>
-]]></content>
-      <tags>
-        <tag>computer-science</tag>
-        <tag>Structure &amp; Interpretation of Computer Programs</tag>
       </tags>
   </entry>
 </search>
